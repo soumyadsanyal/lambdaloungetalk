@@ -72,8 +72,8 @@ eval (Minus x y) = case (eval x, eval y) of
 eval (Times x y) = case (eval x, eval y) of 
   (VInt x, VInt y) -> VInt (x*y)
   (VNat x, VNat y) -> VNat (times' (x) (y))
-  (VInt _, VNat _) -> error "Incompatible argument types!"
-  (VNat _, VInt _) -> error "Incompatible argument types!"
+  (VInt x, VNat y) -> VInt (translateint(y) * x)
+  (VNat x, VInt y) -> VInt (translateint(x) * y)
   _                -> error "Arguments must be Ints or Nats!"
 eval (Divide x y) = case (eval x, eval y) of 
   (VInt x, VInt y) -> if (y/=0) then VInt (div x y) else error "Division by zero!"
@@ -130,6 +130,8 @@ evalT tenv (Minus x y) = case (evalT tenv x, evalT tenv y) of
 evalT tenv (Times x y) = case (evalT tenv x, evalT tenv y) of 
   (TInt , TInt ) -> TInt
   (TNat , TNat ) -> TNat
+  (TNat , TInt) -> TInt
+  (TInt , TNat) -> TInt
   _                -> TError
 evalT tenv (Divide x y) = case (evalT tenv x, evalT tenv y) of 
   (TInt , TInt ) -> TInt
