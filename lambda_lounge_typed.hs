@@ -168,7 +168,6 @@ plusone = Fun (Var 1 TNat) (Plus (Variable 1 ) (Constant (VNat (Succ Zero))))
 timesfour = Fun (Var 1 TNat) (Times (Variable 1 ) (Constant (VNat (Succ (Succ (Succ (Succ Zero)))))))
 
 
-y=Fun (Var 1 TNat) (App ((Fun (Var 2 TNat) (App (Variable 1 ) (App (Variable 2 ) (Variable 2 ))))) (Fun (Var 3 TNat) (App (Variable 1 ) (App (Variable 3 ) (Variable 3 )))))
 
 
 double = Fun (Var 1 (TFunction TNat TNat)) (

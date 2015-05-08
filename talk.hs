@@ -19,7 +19,7 @@ data List' a = Nil | Cons a (List' a)
 
 -- eval (Plus (Constant (VNat (Succ Zero))) (Constant (VNat (Succ (Succ (Succ Zero))))))
 
--- eval (Plus (Constant (VInt 0)) (Constant (VNat (Succ (Succ (Succ Zero))))))
+-- eval (Plus (Constant (VInt 0)) (Constant (VInt 3)))
 
 
 --eval (Times (Constant (VNat (Succ (Succ (Succ Zero))))) (Constant (VInt 100)))
