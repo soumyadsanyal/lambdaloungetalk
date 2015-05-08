@@ -154,6 +154,7 @@ evalT tenv (App f x) = case (evalT tenv f) of
  _ ->  TError 
 evalT tenv (Fun (Var v t) f) = TFunction t (evalT (extend tenv (v) t) f)
 
+-- This is the type environment we use
 extend :: Eq a => (a -> b) -> a -> b -> (a -> b)
 extend f x y = \w -> if (w==x) then y else (f w)
 
@@ -211,7 +212,6 @@ len (Cons x xs) = 1+len(xs)
 firstlist = Cons 1 (Cons 2 (Cons 3 Nil))
 secondlist = Cons 'a' (Cons 'b' (Cons 'd' (Cons 'e' Nil)))
 
-meeting = "Lambda Lounge"::[Char]
 
 
 
