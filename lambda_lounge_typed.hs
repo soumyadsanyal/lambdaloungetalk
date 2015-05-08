@@ -176,6 +176,42 @@ double = Fun (Var 1 (TFunction TNat TNat)) (
                       App (Variable 1 ) (
                               (Variable 2 )))))
 
+--talk
+data Pair = Pair Int Int
+ deriving (Eq, Show)
+
+thepair = Pair 1 2
+
+data Tree' = Empty | Leaf Int | Node Int Tree' Tree'
+ deriving (Eq, Show)
+
+atree = Node 1 Empty Empty
+btree = Node 2 Empty Empty
+ctree = Node 3 atree btree
+dtree = Node 10 btree ctree
+
+--bad = Pair "Lambda" "Lounge"
+
+
+
+-- eval (Plus (Constant (VNat (Succ Zero))) (Constant (VNat (Succ (Succ (Succ Zero))))))
+
+-- eval (Plus (Constant (VInt 0)) (Constant (VInt 3)))
+
+
+--eval (Times (Constant (VNat (Succ (Succ (Succ Zero))))) (Constant (VInt 100)))
+
+data List' a  = Nil | Cons a (List' a)
+ deriving (Eq, Show)
+ 
+len :: List' a -> Int
+len Nil = 0
+len (Cons x xs) = 1+len(xs)
+
+firstlist = Cons 1 (Cons 2 (Cons 3 Nil))
+secondlist = Cons 'a' (Cons 'b' (Cons 'd' (Cons 'e' Nil)))
+
+meeting = "Lambda Lounge"::[Char]
 
 
 
