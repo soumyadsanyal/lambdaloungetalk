@@ -182,7 +182,7 @@ data Pair = Pair Int Int
 
 thepair = Pair 1 2
 
-data Tree' = Empty | Leaf Int | Node Int Tree' Tree'
+data Tree' = Empty | Node Int Tree' Tree'
  deriving (Eq, Show)
 
 atree = Node 1 Empty Empty
